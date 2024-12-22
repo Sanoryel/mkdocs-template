@@ -10,6 +10,7 @@ pages:
     - source ~/.bashrc  # Recharger les variables d'environnement
     - nvm install 22  # Installer Node.js (version 16 ici, vous pouvez changer la version)
     - npm i --save puppeteer
+    - node export_to_pdf.js https:\\mkdocs-template-7ce39f.gitlab.io/mkdocs-template/print_page/ docs/assets/site.pdf "Documentation"
     - sed -i "s|site_url:.*|site_url:${SITE_URL}|" mkdocs.yml
     - pip install -r requirements.txt 
     - mkdocs build --site-dir public
