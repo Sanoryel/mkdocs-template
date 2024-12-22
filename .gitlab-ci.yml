@@ -1,7 +1,11 @@
+variables:
+  SITE_URL: "https://mkdocs-template-7ce39f.gitlab.io/"
+  
 pages:
   stage: deploy
   image: python:latest
   script:
+    - sed -i 's|site_url: .*|site_url: https://<username>.gitlab.io/<repository>|' mk
     - pip install -r requirements.txt 
     - mkdocs build --site-dir public
   artifacts:
