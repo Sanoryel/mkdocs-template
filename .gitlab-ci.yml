@@ -9,7 +9,7 @@ pages:
     - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash # Installer nvm
     - source ~/.bashrc  # Recharger les variables d'environnement
     - nvm install 22  # Installer Node.js (version 16 ici, vous pouvez changer la version)
-    - node -v  # Vérifier la version de Node.js installée
+    - npm i --save puppeteer
     - sed -i "s|site_url:.*|site_url:${SITE_URL}|" mkdocs.yml
     - pip install -r requirements.txt 
     - mkdocs build --site-dir public

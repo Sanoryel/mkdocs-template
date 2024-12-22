@@ -25,7 +25,6 @@ jobs:
       - name: Set SITE_URL for GitHub Pages
         run:  |
          sed -i "s|site_url:.*|site_url: ${SITE_URL}|" mkdocs.yml  # Changez ici l'URL pour GitHub
-         cat mkdocs.yml 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
