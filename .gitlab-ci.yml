@@ -5,8 +5,9 @@ pages:
   stage: deploy
   image: python:latest
   script:
+    - echo "SITE_URL is: $SITE_URL"
     - echo "Mise à jour de mkdocs.yml avec l'URL du site"
-    - envsubst < mkdocs.yml > mkdocs_tmp.yml && mv mkdocs_tmp.yml mkdocs.yml  # Utilisation de envsubst pour remplacer SITE_URL
+    - sed -i "s|site_url:.*|site_url: \"$SITE_URL\"|" mkdocs.yml  # Remplacer la ligne site_url
     - cat mkdocs.yml  # Afficher le contenu de mkdocs.yml après modification
     - pip install -r requirements.txt 
     - mkdocs build --site-dir public

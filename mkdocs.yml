@@ -1,5 +1,5 @@
 site_name: My MkDocs Material Documentation
-site_url: "${SITE_URL}"  # Utilisation de la variable d'environnement SITE_URL
+site_url: "${SITE_URL}"
 
 theme:
   name: material
