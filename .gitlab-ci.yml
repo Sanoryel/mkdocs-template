@@ -1,5 +1,5 @@
 variables:
-  SITE_URL: "https://mkdocs-template-7ce39f.gitlab.io/"
+  SITE_URL: "https:\/\/mkdocs-template-7ce39f.gitlab.io\/"
 
 pages:
   stage: deploy
@@ -7,7 +7,7 @@ pages:
   script:
     - echo "Variables are '$SITE_URL'"
     - echo "Mise à jour de mkdocs.yml avec l'URL du site"
-    - sed -i "s/site_url:.*/site_url:/site_url:$SITE_URL/" mkdocs.yml
+    - sed -i "s/site_url:.*/site_url:/site_url:${SITE_URL}/" mkdocs.yml
     - cat mkdocs.yml  # Afficher le contenu de mkdocs.yml après modification
     - pip install -r requirements.txt 
     - mkdocs build --site-dir public
