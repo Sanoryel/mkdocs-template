@@ -5,9 +5,9 @@ pages:
   stage: deploy
   image: python:latest
   script:
-    - echo "SITE_URL is: $SITE_URL"
+    - echo "Variables are '$SITE_URL'"
     - echo "Mise à jour de mkdocs.yml avec l'URL du site"
-    - sed -i "s|site_url:.*|site_url: \"$SITE_URL\"|" mkdocs.yml  # Remplacer la ligne site_url
+    - sed -i "s/site_url:.*/site_url:/site_url:$SITE_URL/" mkdocs.yml
     - cat mkdocs.yml  # Afficher le contenu de mkdocs.yml après modification
     - pip install -r requirements.txt 
     - mkdocs build --site-dir public
