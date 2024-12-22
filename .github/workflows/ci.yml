@@ -5,7 +5,7 @@ on:
       - master 
       - main
 env:
-  SITE_URL: " https:\/\/mkdocs-template-7ce39f.gitlab.io\/"
+  SITE_URL: https:\/\/mkdocs-template-7ce39f.gitlab.io\/
 
 permissions:
   contents: write
