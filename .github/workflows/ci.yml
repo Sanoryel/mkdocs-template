@@ -23,7 +23,9 @@ jobs:
           python-version: '3.13'
       - run: pip install -r requirements.txt 
       - name: Set SITE_URL for GitHub Pages
-        run:  sed -i "s|site_url:.*|site_url:${SITE_URL}|" mkdocs.yml  # Changez ici l'URL pour GitHub
+        run:  |
+         sed -i "s|site_url:.*|site_url:${SITE_URL}|" mkdocs.yml  # Changez ici l'URL pour GitHub
+         cat mkdocs.yml 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
