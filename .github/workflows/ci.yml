@@ -25,6 +25,10 @@ jobs:
         with:
           node-version: 20 # Spécifie la version de Node.js à utiliser
       - run: npm i --save puppeteer
+      - name: Run Puppeteer script
+        run: |
+          node export_to_pdf.js https://sanoryel.github.io/mkdocs-template/print_page/ docs/assets/site.pdf "Documentation"
+
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
       - uses: actions/cache@v4
         with:
