@@ -31,6 +31,7 @@ footerHtml = ` `;
 
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: 'networkidle2' });
+    await page.waitForTimeout(10000);  // 10000ms = 10 secondes
     await page.pdf({
         path: pdfPath, // path to save pdf file
         format: 'A4', // page format
