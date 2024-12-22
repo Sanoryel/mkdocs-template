@@ -1,5 +1,5 @@
 site_name: My MkDocs Material Documentation
-site_url: "${SITE_URL}"
+site_url: http://127.0.0.1:8000/
 
 theme:
   name: material
