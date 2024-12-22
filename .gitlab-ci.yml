@@ -5,7 +5,7 @@ pages:
   stage: deploy
   image: python:latest
   script:
-    - apt-get update && apt-get install -y libnss3 libdbus-1-3 libatk1.0-0 curl  # Installer curl pour récupérer nvm
+    - apt-get update && apt-get install -y libnss3 libdbus-1-3 libatk1.0-0 libatk-bridge2.0-0 curl  # Installer curl pour récupérer nvm
     - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash # Installer nvm
     - source ~/.bashrc  # Recharger les variables d'environnement
     - nvm install 22  # Installer Node.js (version 16 ici, vous pouvez changer la version)
