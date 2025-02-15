@@ -39,7 +39,7 @@ generate-pdf:
     - mkdocs serve -a 0.0.0.0:8000 & export MKDOCS_PID=$!
     # Attente active jusqu'à ce que le serveur soit accessible
     - until nc -z 127.0.0.1 8000; do echo "Waiting for server..."; sleep 1; done
-    - node export_to_pdf.js http://127.0.0.1:8000/print_page/ site.pdf "Documentation"
+    - export_to_pdf.js http://127.0.0.1:8000/print_page/ site.pdf "Documentation"
     - kill $MKDOCS_PID
   dependencies:
     - build-mkdocs
