@@ -1,0 +1,45 @@
+name: ci 
+on:
+  push:
+    branches:
+      - master 
+      - main
+env:
+  SITE_URL: https:\/\/mkdocs-template-7ce39f.gitlab.io\/
+
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: pip install -r requirements.txt 
+      - name: Set SITE_URL for GitHub Pages
+        run:  |
+         sed -i "s|site_url:.*|site_url: ${SITE_URL}|" mkdocs.yml  # Changez ici l'URL pour GitHub
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # Spécifie la version de Node.js à utiliser
+      - run: npm i --save puppeteer
+      - name: Run Puppeteer script
+        run: |
+          node export_to_pdf.js https://sanoryel.github.io/mkdocs-template/print_page/ docs/assets/site.pdf "Documentation"
+
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      
+      - run: mkdocs gh-deploy --force

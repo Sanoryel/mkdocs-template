@@ -1,0 +1,63 @@
+variables:
+  SITE_URL: "https://mkdocs-template-7ce39f.gitlab.io/"
+
+image:
+  name: registry.gitlab.com/lucasleyronas/mkdocs_docker:main
+
+stages:
+  - test
+  - build
+  - pdf
+  - deploy
+
+# Étape 1 : Test en mode strict
+test-mkdocs-strict:
+  stage: test
+  script:
+    - mkdocs build --strict --verbose --site-dir test
+  rules:
+    - if: '$CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH'
+
+# Étape 2 : Build en mode strict
+build-mkdocs:
+  stage: build
+  script:
+    - update_site_url.py  # Exécuter le script Python
+    - mkdocs build --strict  # Build le site avec vérification stricte 
+  artifacts:
+    paths:
+      - site/
+      - mkdocs.yml
+    expire_in: 1 hour
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "main"'
+
+# Étape 3 : Génération de PDF avec un script
+generate-pdf:
+  stage: pdf
+  script:
+    - mkdocs serve -a 0.0.0.0:8000 & export MKDOCS_PID=$!
+    # Attente active jusqu'à ce que le serveur soit accessible
+    - until nc -z 127.0.0.1 8000; do echo "Waiting for server..."; sleep 1; done
+    - node export_to_pdf.js http://127.0.0.1:8000/print_page/ site.pdf "Documentation"
+    - kill $MKDOCS_PID
+  dependencies:
+    - build-mkdocs
+  artifacts:
+    paths:
+      - site.pdf
+    expire_in: 1 hour
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "main"'
+
+pages:
+  stage: deploy
+  script:
+    - mv site public
+    - move_pdf_file.py "mkdocs.yml" "public"
+    # - mv site.pdf public/assets/
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "main"'

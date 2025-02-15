@@ -1,0 +1,24 @@
+site_name: Documentation Template
+site_url: http://127.0.0.1:8000/
+
+theme:
+  name: material
+  custom_dir: overrides
+
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - javascripts/extra.js
+plugins:
+  - search
+  - print-site:
+      path_to_pdf: "assets/site.pdf"
+      add_print_site_banner: true
+      print_site_banner_template: "docs/assets/templates/custom_banner.tpl"
+      add_cover_page: true
+      cover_page_template: "docs/assets/templates/custom_cover_page.tpl"
+
+
+extra:
+    abstract: This is a report about a topic
+    banner_message: "Save this page using File > Print > Save as PDF"
