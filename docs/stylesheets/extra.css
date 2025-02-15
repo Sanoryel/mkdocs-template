@@ -3,14 +3,7 @@
 }
 
 :root  > * {
-    --md-primary-fg-color:               #6366F1FF;
-    --md-primary-fg-color--light:        #818CF8FF;
-    --md-primary-fg-color--dark:         #4338CAFF;
-    --md-primary-bg-color:               #FFFFFFFF;
-    --md-primary-bg-color--light:        #FFFFFFB3;
+    --md-primary-fg-color:               #e2001a;
   
-    --md-accent-fg-color:                #536DFEFF;
-    --md-accent-fg-color--transparent:   #536DFE1A;
-    --md-accent-bg-color:                #FFFFFFFF;
-    --md-accent-bg-color--light:         #FFFFFFB3;
+    --md-accent-fg-color:                #ff001f;
 }
