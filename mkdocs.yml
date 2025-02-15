@@ -5,8 +5,8 @@ theme:
   name: material
   custom_dir: overrides
   palette:
-    primary: custom
-    accent: custom
+    - primary: custom
+    - accent: custom
     
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
