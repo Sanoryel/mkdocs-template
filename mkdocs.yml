@@ -12,6 +12,8 @@ extra_javascript:
 plugins:
   - search
   - print-site:
+      toc_title: 'Table of Contents'
+      add_full_urls: true
       path_to_pdf: "assets/site.pdf"
       add_print_site_banner: true
       print_site_banner_template: "docs/assets/templates/custom_banner.tpl"
