@@ -1,6 +1,7 @@
 variables:
   SITE_URL: "https://mkdocs-template-7ce39f.gitlab.io/"
-
+  HTTPS_REMOTE: https://gitlab-ci-token:${MIKE_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git
+  
 image:
   name: registry.gitlab.com/lucasleyronas/mkdocs_docker:main
 
