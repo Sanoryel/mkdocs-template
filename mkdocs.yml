@@ -1,6 +1,8 @@
 site_name: Documentation Template
 site_url: http://127.0.0.1:8000/
-
+site_description: Template for MkDocs
+site_author: Lucas Leyronas
+repo_url: ""
 theme:
   name: material
   custom_dir: overrides
@@ -82,6 +84,7 @@ extra:
       make our documentation better.
   version:
     provider: mike
-copyright:
-  Copyright &copy; 2025 - 2025 Precia Molen –
-  <a href="#__consent">Change cookie settings</a>
+copyright: |
+          &copy 2024 Precia Molen. All rights reserved.
+          The content and images on this website are the property of Precia Molen and may not be used without permission
+
