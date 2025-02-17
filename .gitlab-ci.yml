@@ -24,6 +24,7 @@ build-mkdocs:
   stage: build
   script:
     - update_site_url.py  # Exécuter le script Python
+    - update_repo_url.py  # Exécuter le script Python
     - mkdocs build --strict  # Build le site avec vérification stricte 
   artifacts:
     paths:
