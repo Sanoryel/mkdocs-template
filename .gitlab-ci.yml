@@ -57,7 +57,7 @@ pages:
   script:
     - mv site public
     - move_pdf_file.py "mkdocs.yml" "public"
-    
+    - echo "PROJECT_BOT_USER = $PROJECT_BOT_USER"
     # Config Git
     - git config user.email $PROJECT_BOT_USER@gitlab.example.com
     - git config user.name $PROJECT_BOT_USER
