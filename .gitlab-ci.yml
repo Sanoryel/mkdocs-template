@@ -55,9 +55,17 @@ pages:
   script:
     - mv site public
     - move_pdf_file.py "mkdocs.yml" "public"
+    - git config --global user.email "ci@example.com"
+    - git config --global user.name "GitLab CI"
+    - git fetch origin gh-pages:gh-pages  
+    - mike deploy --push $CI_COMMIT_TAG  # Déploie avec le tag
+    - mike alias --push $CI_COMMIT_TAG latest stable  # Met à jour les alias
+  only:
+    - tags  # Ce job ne s'exécute que sur les tags
+    # Récupère les versions existantes
     # - mv site.pdf public/assets/
-  artifacts:
-    paths:
-      - public
-  rules:
-    - if: '$CI_COMMIT_REF_NAME == "main"'
+  # artifacts:
+  #   paths:
+  #     - public
+  # rules:
+  #   - if: '$CI_COMMIT_REF_NAME == "main"'
