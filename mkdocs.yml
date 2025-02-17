@@ -33,7 +33,20 @@ theme:
       accent: custom
   font:
     text: Montserrat
-    
+  features:
+      - navigation.instant
+      - navigation.instant.progress
+      - navigation.tracking
+      - navigation.tabs
+      - navigation.tabs.sticky
+      - navigation.prune 
+      - navigation.top
+      - search.suggest
+      - search.highlight
+      - search.share
+      - announce.dismiss
+
+
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
@@ -51,15 +64,27 @@ plugins:
 
 
 extra:
-    abstract: This is a report about a topic
-    banner_message: "Save this page using File > Print > Save as PDF"
-    alternate:
+  abstract: This is a report about a topic
+  banner_message: "Save this page using File > Print > Save as PDF"
+  alternate:
     - name: English
       link: /en/ 
       lang: en
     - name: French
       link: /fr/
       lang: fr
+  consent:
+    title: Cookie consent
+    description:
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+  version:
+    provider: mike
+copyright:
+  Copyright &copy; 2025 - 2025 Precia Molen –
+  <a href="#__consent">Change cookie settings</a>
 
 markdown_extensions:
   - pymdownx.emoji:
@@ -68,3 +93,4 @@ markdown_extensions:
       options:
         custom_icons:
           - overrides/.icons
+  
