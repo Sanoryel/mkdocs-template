@@ -17,8 +17,8 @@ test-mkdocs-strict:
   stage: test
   script:
     - mkdocs build --strict --verbose --site-dir test
-  rules:
-    - if: '$CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH'
+  # rules:
+  #   - if: '$CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH'
 
 # Étape 2 : Build en mode strict
 build-mkdocs:
