@@ -9,8 +9,8 @@ stages:
   - deploy
 
 before_script:
-  - echo $PROJECT_BOT_USER
-
+  - git config user.email $PROJECT_BOT_USER@gitlab.example.com
+  - git config user.name $PROJECT_BOT_USER
 
 # Étape 1 : Test en mode strict
 test-mkdocs-strict:
