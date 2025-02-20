@@ -8,6 +8,10 @@ stages:
   - pdf
   - deploy
 
+before_script:
+  - echo $PROJECT_BOT_USER
+
+
 # Étape 1 : Test en mode strict
 test-mkdocs-strict:
   stage: test
