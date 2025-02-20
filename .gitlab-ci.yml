@@ -11,7 +11,8 @@ stages:
 before_script:
   - git config user.email $PROJECT_BOT_USER@gitlab.example.com
   - git config user.name $PROJECT_BOT_USER
-
+  - git fetch origin $PAGES_BRANCH && git checkout -b $PAGES_BRANCH origin/$PAGES_BRANCH || echo "Pages branch not deployed yet."
+  
 # Étape 1 : Test en mode strict
 test-mkdocs-strict:
   stage: test
