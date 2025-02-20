@@ -8,6 +8,9 @@ stages:
   - pdf
   - deploy
 
+variables:
+    PAGES_BRANCH: pages
+    
 before_script:
   - git config user.email $PROJECT_BOT_USER@gitlab.example.com
   - git config user.name $PROJECT_BOT_USER
